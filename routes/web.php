@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContenController;
 use App\Http\Controllers\BiodataController;
+use App\Http\Controllers\BukuController;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,5 +22,9 @@ Route::get('/', function () {
 });
 Route::get('biodata',[ContenController::class,'index']);
 Route::resource('biodata',BiodataController::class,);
+Route::resource('buku', BukuController::class);
 Route::get('/home', [ContenController::class, 'index']);
 Route::get('/contak', [ContenController::class, 'contak']);
+Route::get('/', [LoginController::class, 'login'])->name('login');
+Route::post('actionlogin', [LoginController::class, 'actionlogin'])->name('actionlogin');
+Route::get('actionlogout', [LoginController::class, 'actionlogout'])->name('actionlogout')->middleware('auth');

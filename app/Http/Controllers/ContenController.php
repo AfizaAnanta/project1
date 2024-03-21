@@ -8,6 +8,10 @@ class ContenController extends Controller
     //
     public function index()
     {
-        return view('biodata.index');
+        return view('isi.home');
     }
+    public function contak()
+    {
+        return view('isi.contak');
+}
 }

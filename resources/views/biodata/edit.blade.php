@@ -1,4 +1,4 @@
-@extends('template')
+ @extends('template')
 
 @section('konten')
     <div class="container mt-5 mb-5">

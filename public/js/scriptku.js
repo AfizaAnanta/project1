@@ -1,7 +1,6 @@
 var modal = document.getElementById('myModal');
 var btn = document.getElementById('tombolku');
 var span = document.getElementById('tutup');
-
 btn.onclick =function() {
     modal.style.display ="block";
 }
@@ -15,10 +14,11 @@ window.onclick = function(e) {
 
 }
 
-function masukannama()
+function masukkannama()
 {
     if (document.form1.nama.value=="")
     {
         alert("anda belum memasukkan nama");
     }
 }
+

@@ -1,8 +1,9 @@
 <?php
 namespace App\Http\Controllers;
 
-use App\Models\biodata;
 use Illuminate\Http\Request;
+use App\Models\biodata;
+use Alert;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 
@@ -31,6 +32,7 @@ class BiodataController extends Controller
             'kelas'=>$request->kelas
         ]);
         if(DB::table('biodatas')){
+            Alert::success('success','data berhasil disimpan');
             return redirect()->route('biodata.index')->with(['success'=>'Data berhasil disimpan']);
         }else{
             return redirect()->route('biodata.index')->with(['error'=>'Data gagal disimpan']);
@@ -41,6 +43,20 @@ class BiodataController extends Controller
         $biodata=Biodata::find($id);
         return view('biodata.edit', compact('biodata'));
     }
+    public function destroy($id)
+{
+    $biodata = biodata::FindOrFail($id);
+
+    $biodata->delete();
+    if($biodata){
+        Alert::success('success','data berhasil disimpan');
+        return redirect()->route('biodata.index')->with(['success'=>'Data berhasil disimpan']);
+
+    }else{
+        return redirect()->route('biodata.index')->with(['error'=>'Data gagal dihapus']);
+    
+    }
+}
     public function update(Request $request, $id)
     {
     $this->validate($request, [
@@ -61,8 +77,6 @@ class BiodataController extends Controller
         'ttl'=>$request->ttl,
         'jurusan'=>$request->jurusan,
         'kelas'=>$request->kelas ,
-        
-      
        
     ]); 
     if($biodata){

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Azrul</title>
        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
@@ -21,13 +21,18 @@
    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
  <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
  <li class="nav-item active">
-<a class="nav-link" href="{{url('/home')}}">
-    <font color="white">Home</font> 
-    <span class="sr-only">(current)</span></a>
- </li>
+
 <li class="nav-item">
-  <a class="nav-link" href="{{url('/data')}}">
-    <font color="white">Mata Pelajaran</font></a>
+  <a class="nav-link" href="{{url('/biodata')}}">
+    <font color="white">Biodata</font></a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="{{url('/buku')}}">
+    <font color="white">Buku</font></a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="{{url('/actionlogout')}}">
+    <font color="white">Logout</font></a>
 </li>
  <li class="nav-item">
  <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">
@@ -52,7 +57,10 @@
 </nav>
 
     <div class=container>
+      <header>
         @yield('konten')
+        @include('sweetalert::alert')
+</header>
     </div>
     <script src="js/scriptku.js"></script>
            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
